@@ -49,4 +49,9 @@ public class HomeController {
     public String login() {
         return "login";
     }
+
+    @RequestMapping
+    public String success() {
+        return "success";
+    }
 }
