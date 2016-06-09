@@ -1,4 +1,4 @@
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>MasterCrafters</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,12 +16,12 @@
             <a class="navbar-brand" href="/">mastercrafters</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="/">HOME</a></li>
-            <li class="active" class="dropdown">
+            <li class="active"><a href="/">HOME</a></li>
+            <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORIES
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">SHOES</a></li>
+                    <li><a href="/shoes">SHOES</a></li>
                     <li><a href="#">CLOTHES</a></li>
                     <li><a href="#">TECHNOLOGY</a></li>
                 </ul>
@@ -36,26 +36,12 @@
         </ul>
     </div>
 </nav>
-<h4 class="text-center" style="color:#e5576f;">SHOES !</h4>
+<h2 class="text-center" style="color:#e5576f;">HERE YOU CAN FIND EVERYTHING YOU'RE LOOKING FOR!</h2>
 
-<div>
-    <table>
-        <ol>
-            <h2>Fuck this shit I want this :))</h2>
-            <br>
-            <li><td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73Xr8hv7h01wPEuq4tyGyZK-5xiSB4ketJuzSinCa2p2y_P9b" alt=""></td></li>
-        </ol>
-    </table>
-</div>
-
-<hr>
-<hr>
-<form action="/login">
-    Username<input type="text">
-
-    Parola:<input type="password">
-    <input type="submit" class="btn btn-success" value="Login">
-
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
 </form>
+
 </body>
 </html>

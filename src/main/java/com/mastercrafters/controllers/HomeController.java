@@ -45,4 +45,8 @@ public class HomeController {
         return "orders";
     }
 
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
 }
