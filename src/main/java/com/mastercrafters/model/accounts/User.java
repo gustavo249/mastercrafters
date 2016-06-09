@@ -1,4 +1,6 @@
-package com.mastercrafters.model;
+package com.mastercrafters.model.accounts;
+
+import com.mastercrafters.model.BaseEntity;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -11,7 +13,7 @@ import javax.validation.constraints.Size;
  * HAPPY CODING!
  */
 @Entity
-public class User {
+public class User extends BaseEntity {
 
     @NotNull
     @Size(min = 5, max = 20, message = "username must be between 5 and 20 characters")
