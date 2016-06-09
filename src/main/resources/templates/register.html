@@ -3,42 +3,84 @@
     <title>MasterCrafters</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/registerStyle.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
 </head>
 <body>
+<nav class="navbar navbar-default" style="background: #255d93; color: #000;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">mastercrafters</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/">HOME</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORIES
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/shoes">SHOES</a></li>
+                    <li><a href="#">CLOTHES</a></li>
+                    <li><a href="#">TECHNOLOGY</a></li>
+                </ul>
+            </li>
+            <li><a href="/myaccount">MY ACCOUNT</a></li>
+            <li><a href="/orders">ORDERS</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="alert alert-info">
+    <strong>Info!</strong> Fill the following fields in order to register.
+</div>
 
-<form action="/register">
-    <header>Register</header>
+<div class="container">
+    <h2>Register</h2>
 
-    <label>Nume *</label>
-    <input type="text"/>
-
-    <label>Prenume *</label>
-    <input type="text"/>
-
-    <label>Email *</label>
-    <input type="email"/>
-
-    <label>Telephone *</label>
-    <input type="tel"/>
-
-    <label>Telephone *</label>
-    <input type="text"/>
-
-    <label>Nume utilizator *</label>
-    <input type="text"/>
-
-    <label>Parola *</label>
-    <input type="password" />
-
-    <label>Confirma parola *</label>
-    <input type="password" />
-
-    <input type="submit" value="Inregistrare">
-</form>
+    <form role="form" action="/register">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="password" class="form-control" id="username" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="password" class="form-control" id="firstName" placeholder="Enter your first name">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="password" class="form-control" id="lastName" placeholder="Enter your last name">
+        </div>
+        <div class="form-group">
+            <label for="telephone">Telephone:</label>
+            <input type="password" class="form-control" id="telephone" placeholder="Enter your telephone">
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="password" class="form-control" id="address" placeholder="Enter your address">
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio">Seller</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio">Buyer</label>
+        </div>
+        <br><br>
+        <button type="submit" style="width: 100%" class="btn btn-success">Submit</button>
+    </form>
+</div>
 </body>
 </html>
