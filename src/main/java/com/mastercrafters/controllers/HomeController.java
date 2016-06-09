@@ -15,6 +15,11 @@ public class HomeController {
         return "index";
     }
 
+    @RequestMapping("/register")
+    public String register() {
+        return "register";
+    }
+
     @RequestMapping("/shoes")
     public String shoes() {
         return "shoes";
@@ -28,6 +33,16 @@ public class HomeController {
     @RequestMapping("/technology")
     public String technology() {
         return "technology";
+    }
+
+    @RequestMapping("/myaccount")
+    public String myaccount() {
+        return "myaccount";
+    }
+
+    @RequestMapping("/orders")
+    public String orders() {
+        return "orders";
     }
 
 }
