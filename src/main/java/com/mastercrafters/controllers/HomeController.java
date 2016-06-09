@@ -15,6 +15,19 @@ public class HomeController {
         return "index";
     }
 
+    @RequestMapping("/shoes")
+    public String shoes() {
+        return "shoes";
+    }
 
+    @RequestMapping("/clothes")
+    public String clothes() {
+        return "clothes";
+    }
+
+    @RequestMapping("/technology")
+    public String technology() {
+        return "technology";
+    }
 
 }
