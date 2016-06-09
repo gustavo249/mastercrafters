@@ -36,4 +36,9 @@ public class HomeController {
         return "404";
     }
 
+    @RequestMapping("/product")
+    public String product() {
+        return "product";
+    }
+
 }
