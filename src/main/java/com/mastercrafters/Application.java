@@ -14,6 +14,7 @@ public class Application extends SpringBootServletInitializer{
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		System.setProperty("spring.devtools.restart.enabled", "true");
 		return builder.sources(Application.class);
 	}
 }
