@@ -17,7 +17,7 @@ public class Security extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/register").permitAll()
+                .antMatchers("/", "/register", "/contact").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -33,5 +33,8 @@ public class Security extends WebSecurityConfigurerAdapter {
         auth
                 .inMemoryAuthentication()
                 .withUser("andrei").password("aremere").roles("USER");
+        for (char c='a'; c<='z';c++) {
+            auth.inMemoryAuthentication().withUser(String.valueOf(c)).password(String.valueOf(c)).roles("USER");
+        }
     }
 }

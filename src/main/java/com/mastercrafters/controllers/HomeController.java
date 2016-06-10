@@ -50,8 +50,19 @@ public class HomeController {
         return "login";
     }
 
+    @RequestMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
     @RequestMapping
     public String success() {
         return "success";
+    }
+
+    @RequestMapping("/sendemailthenredirect")
+    public String sendEmailToUs() {
+        // TODO send email to us ------------------------------------------------------------------------
+        return "index";
     }
 }
