@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>MasterCrafters</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,40 +43,52 @@
 <div class="container">
     <h2>Register</h2>
 
-    <form role="form" th:action="@{/register}" th:object="${userDTO}" method = "post"> <!--TODO object-->
+    <!--
+        Here we create a new user object filled with the input values from the form
+        After every input we add a label in case of errors which will appear only if the input from the box does not
+        correspond with our validation rules from the User class
+    -->
+    <form role="form" th:action="@{/register}" th:object="${user}" method = "post"> <!--TODO object-->
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter email">
+            <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email errors</label>
         </div>
         <div class="form-group">
             <label for="pwd">Password:</label>
             <input type="password" th:field="*{password}" class="form-control" id="pwd" placeholder="Enter password">
+            <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password errors</label>
         </div>
         <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" th:field="*{username}"class="form-control" id="username" placeholder="Enter username">
+            <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username errors</label>
         </div>
         <div class="form-group">
             <label for="firstName">First Name:</label>
             <input type="text" th:field="*{firstName}" class="form-control" id="firstName" placeholder="Enter your first name">
+            <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name errors</label>
         </div>
         <div class="form-group">
             <label for="lastName">Last Name:</label>
             <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="Enter your last name">
+            <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name errors</label>
         </div>
         <div class="form-group">
             <label for="telephone">Telephone:</label>
             <input type="text" th:field="*{telephone}" class="form-control" id="telephone" placeholder="Enter your telephone">
+            <label th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}">Telephone errors</label>
         </div>
         <div class="form-group">
             <label for="address">Address:</label>
             <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="Enter your address">
+            <label th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Adress errors</label>
         </div>
         <div class="radio">
-            <label><input type="radio" th:field="*{seller}" name="optradio">Seller</label>
+            <label><input type="radio" th:value="${'seller'}" name="optradio">Seller</label>
         </div>
         <div class="radio">
-            <label><input type="radio" th:field="*{buyer}" name="optradio">Buyer</label>
+            <label><input type="radio" th:value="${'buyer'}" name="optradio">Buyer</label>
         </div>
         <br><br>
         <button type="submit" style="width: 100%" class="btn btn-success">Register</button>
