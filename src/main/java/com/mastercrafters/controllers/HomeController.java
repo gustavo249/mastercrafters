@@ -63,6 +63,6 @@ public class HomeController {
     @RequestMapping("/sendemailthenredirect")
     public String sendEmailToUs() {
         // TODO send email to us ------------------------------------------------------------------------
-        return "index";
+        return "redirect:/";
     }
 }
