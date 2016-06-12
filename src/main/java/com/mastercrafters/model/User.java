@@ -18,7 +18,7 @@ public class User extends BaseEntity {
     private String username;
 
     @NotNull
-    @Size(min = 5, max = 20, message = "password must be between 5 and 20 characters")
+    //@Size(min = 5, max = 100, message = "password must be between 5 and 20 characters")
     private String password;
 
     @NotNull
@@ -28,11 +28,11 @@ public class User extends BaseEntity {
     private String email;
 
     @NotNull
-    @Size(min = 5, max = 20, message = "name must be between 5 and 20 characters")
+    //@Size(min = 5, max = 20, message = "name must be between 5 and 20 characters")
     private String firstName;
 
     @NotNull
-    @Size(min = 5, max = 20, message = "name must be between 5 and 20 characters")
+    //@Size(min = 5, max = 20, message = "name must be between 5 and 20 characters")
     private String lastName;
 
 
@@ -41,9 +41,10 @@ public class User extends BaseEntity {
     private String telephone;
 
     @NotNull
-    @Size(min = 5, max = 20)
+    //@Size(min = 5, max = 20)
     private String address;
 
+    @NotNull
     private String type;
 
     public String getUsername() {
