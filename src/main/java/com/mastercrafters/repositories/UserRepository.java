@@ -1,6 +1,6 @@
-package com.mastercrafters.model.repositories;
+package com.mastercrafters.repositories;
 
-import com.mastercrafters.model.accounts.User;
+import com.mastercrafters.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

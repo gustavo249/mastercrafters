@@ -1,6 +1,4 @@
-package com.mastercrafters.model.accounts;
-
-import com.mastercrafters.model.BaseEntity;
+package com.mastercrafters.model;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;

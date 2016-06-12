@@ -1,6 +1,6 @@
 package com.mastercrafters.controllers;
 
-import com.mastercrafters.model.accounts.User;
+import com.mastercrafters.model.User;
 import com.mastercrafters.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
