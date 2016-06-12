@@ -3,6 +3,7 @@ package com.mastercrafters.service;
 import com.mastercrafters.model.accounts.User;
 import com.mastercrafters.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public class UserService {
     UserRepository userRepository;
 
     public void create(User user) {
-        userRepository.save(user);
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        userRepository.saveAndFlush(user);
     }
 
     public User getUser(User user) {
