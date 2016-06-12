@@ -1,4 +1,4 @@
-package com.mastercrafters;
+package com.mastercrafters.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class Security extends WebSecurityConfigurerAdapter {
+
 
 
     @Override
@@ -31,11 +32,6 @@ public class Security extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("andrei").password("aremere").roles("USER");
-        for (char c='a'; c<='z';c++) {
-            auth.inMemoryAuthentication().withUser(String.valueOf(c)).password(String.valueOf(c)).roles("USER");
-        }
+        //TODO create a authentication provider and add it to the auth method parameter
     }
 }

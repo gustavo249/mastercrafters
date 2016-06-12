@@ -1,6 +1,8 @@
 package com.mastercrafters.controllers;
 
 import com.mastercrafters.model.accounts.User;
+import com.mastercrafters.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +18,9 @@ import javax.validation.Valid;
 @Controller
 public class RegistrationController {
 
+    @Autowired
+    private UserService service;
+
     /**
      * After all the field from the registration are filled and the submit button is clicked this
      * method takes over and processes the user object from the model
@@ -26,9 +31,13 @@ public class RegistrationController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@ModelAttribute("user") @Valid User user, BindingResult result) {
         if (result.hasErrors()) { //if some fields are incorrect we return to the registration
-            //TODO insert the new user into the database ---------
+
             System.err.println("Filed errors");
             return "register";
+        } else { //TODO insert the new user into the database ---------
+            service.create(user);
+            System.out.println(user);
+            System.out.println("Filled correctly");
         }
         return "redirect::login"; //if everything went fine we redirect the new user to the login page
     }
@@ -45,5 +54,9 @@ public class RegistrationController {
         User user = new User();
         model.addAttribute("user", user);
         return "register";
+    }
+
+    public void setService(UserService service) {
+        this.service = service;
     }
 }

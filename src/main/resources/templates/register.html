@@ -48,7 +48,7 @@
         After every input we add a label in case of errors which will appear only if the input from the box does not
         correspond with our validation rules from the User class
     -->
-    <form role="form" th:action="@{/register}" th:object="${user}" method = "post"> <!--TODO object-->
+    <form role="form" th:action="@{/register}" th:object="${user}" method = "post">
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter email">
@@ -85,10 +85,10 @@
             <label th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Adress errors</label>
         </div>
         <div class="radio">
-            <label><input type="radio" th:value="${'seller'}" name="optradio">Seller</label>
+            <label><input type="radio" th:field="*{type}" th:value="${'seller'}" name="optradio">Seller</label>
         </div>
         <div class="radio">
-            <label><input type="radio" th:value="${'buyer'}" name="optradio">Buyer</label>
+            <label><input type="radio" th:field="*{type}" th:value="${'buyer'}" name="optradio">Buyer</label>
         </div>
         <br><br>
         <button type="submit" style="width: 100%" class="btn btn-success">Register</button>
