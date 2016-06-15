@@ -19,6 +19,7 @@ public class User extends BaseEntity {
 
     @NotNull
     //@Size(min = 5, max = 100, message = "password must be between 5 and 20 characters")
+    @Size(min = 6, message = "password must be between 5 and 20 characters")
     private String password;
 
     @NotNull
