@@ -45,7 +45,7 @@ public class DatabaseAuthenticationProvider extends AbstractUserDetailsAuthentic
             valid = false;
         }
 
-        User user = userRepository.findOneByEmail(userName);
+        User user = userRepository.findOneByUsername(userName);
         System.err.println("DB pass: " + user.getPassword() + " ; AuthToken pass:" + password);
         if (user == null) {
             this.logger.warn("Username {}: user not found", userName);

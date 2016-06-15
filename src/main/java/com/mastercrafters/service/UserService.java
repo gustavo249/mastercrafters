@@ -33,7 +33,7 @@ public class UserService {
     }
 
     public User getUser(User user) {
-        return userRepository.findOneByEmail(user.getEmail());
+        return userRepository.findOneByUsername(user.getUsername());
     }
 
     public List<User> getAllUsers() {
