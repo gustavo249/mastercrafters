@@ -60,6 +60,11 @@
             <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password errors</label>
         </div>
         <div class="form-group">
+            <label for="rpwd">Confirm Password:</label>
+            <input type="password" th:field="*{repeatPassword}" class="form-control" id="rpwd" placeholder="Confirm password">
+            <label th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}">Repeat password errors</label>
+        </div>
+        <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" th:field="*{username}"class="form-control" id="username" placeholder="Enter username">
             <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username errors</label>

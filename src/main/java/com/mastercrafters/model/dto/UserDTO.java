@@ -3,7 +3,6 @@ package com.mastercrafters.model.dto;
 import com.mastercrafters.model.BaseEntity;
 import org.hibernate.validator.constraints.Email;
 
-import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -11,9 +10,8 @@ import javax.validation.constraints.Size;
  * Created by Julie on 12-Jun-16.
  */
 
-@MatchFields(first = "password", second = "confirmPassword", message = "The passwords don't match")
+@MatchFields(first = "password", second = "repeatPassword", message = "The passwords don't match")
 
-@Entity
 public class UserDTO extends BaseEntity {
 
     @NotNull
@@ -21,8 +19,11 @@ public class UserDTO extends BaseEntity {
     private String userName;
 
     @NotNull
-    @Size(min = 5, max = 20, message = "password must be between 5 and 20 characters")
+    @Size(min = 5, message = "password must be between 5 and 20 characters")
     private String password;
+
+    @NotNull
+    private String repeatPassword;
 
     @NotNull
     @Email
@@ -125,5 +126,13 @@ public class UserDTO extends BaseEntity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 }

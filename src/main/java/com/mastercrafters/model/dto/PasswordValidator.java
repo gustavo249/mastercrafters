@@ -25,6 +25,8 @@ public class PasswordValidator implements ConstraintValidator<MatchFields, Objec
             BeanWrapper wrapper = PropertyAccessorFactory.forBeanPropertyAccess(value);
             Object firstObj = wrapper.getPropertyValue(firstFieldName);
             Object secondObj = wrapper.getPropertyValue(secondFieldName);
+            System.out.println(firstObj);
+            System.out.println(secondObj);
 
             return firstObj == null && secondObj == null || firstObj != null && firstObj.equals(secondObj);
         } catch (final Exception ignore) {

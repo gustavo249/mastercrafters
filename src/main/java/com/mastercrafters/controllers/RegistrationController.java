@@ -1,16 +1,18 @@
 package com.mastercrafters.controllers;
 
-import com.mastercrafters.model.User;
+import com.mastercrafters.model.dto.UserDTO;
 import com.mastercrafters.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by Gustavo on 11/06/2016.
@@ -29,10 +31,14 @@ public class RegistrationController {
      * @return
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@ModelAttribute("user") @Valid User user, BindingResult result) {
+    public String register(@ModelAttribute("user") @Valid UserDTO user, BindingResult result) {
         if (result.hasErrors()) { //if some fields are incorrect we return to the registration
 
             System.err.println("Filed errors");
+            List<ObjectError> errorList = result.getAllErrors();
+            for (ObjectError error : errorList) {
+                System.out.println(error);
+            }
             return "register";
         } else { //TODO insert the new user into the database ---------
             service.create(user);
@@ -51,7 +57,7 @@ public class RegistrationController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String createUserForm(Model model) {
-        User user = new User();
+        UserDTO user = new UserDTO();
         model.addAttribute("user", user);
         return "register";
     }
