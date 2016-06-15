@@ -1,6 +1,7 @@
 package com.mastercrafters.service;
 
 import com.mastercrafters.model.User;
+import com.mastercrafters.model.dto.UserDTO;
 import com.mastercrafters.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,8 +19,16 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public void create(User user) {
-        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+    public void create(UserDTO userDTO) {
+        User user = new User();
+        user.setAddress(userDTO.getAddress());
+        user.setEmail(userDTO.getEmail());
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setTelephone(userDTO.getTelephone());
+        user.setType(userDTO.getType());
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(new BCryptPasswordEncoder().encode(userDTO.getPassword()));
         userRepository.saveAndFlush(user);
     }
 
